@@ -54,20 +54,15 @@ void Country::read()
 
 bool Country::greater_population(Country p)
 {
-  Country best;
     bool best_population = true;
     if(p.population > population)
     {
-     best = p;
      best_country_population = p.country_name;
     }
     else {
         best_country_population = population;
     }
-    //cout << "Best: " << best << endl;
-    cout << endl << "Bet Country Pop: " << best_country_population << endl;
-  
-  
+    cout << endl << "Best Country Pop: " << best_country_population << endl;
   
   // holds on to the greatest country of population
 }
@@ -120,15 +115,15 @@ int main()
     //bool more = true;
     //while (more)
     //{    
-      Country USA;
-      //Country;
-      Country Iraq;  
-      //Country next;
-      USA.read();
-      Iraq.read();  
-      if (USA.greater_population(Iraq))
-         USA.print();
-
+        Country USA;
+        Country Iraq;  
+        USA.read();
+        Iraq.read();  
+        if (USA.greater_population(Iraq))
+             USA.print();
+        else {
+            Iraq.print();
+        }
       //cout << "More data? (y/n) ";
       //string answer;
       //getline(cin, answer);
