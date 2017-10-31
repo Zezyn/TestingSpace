@@ -66,12 +66,12 @@ bool Country::greater_population(Country p)
     }
 }
 
-bool Country::greater_area(Country a)
+bool Country::greater_area(Country p)
 {
   // holds on to the greatest country of area
 }
 
-bool Country::greater_density(Country pd)
+bool Country::greater_density(Country p)
 {
   
   // Holds on to the country with the greatest population_density
@@ -125,22 +125,14 @@ void Check_Population(Country one, Country two) {
 int main()
 {
    
-    //bool more = true;
-    //while (more)
-    //{    
         Country USA;
         Country Iraq;  
-        USA.read();
-        Iraq.read();  
+        Country SA;
+	USA.read();
+        Iraq.read();
+	SA.read();
         
         Check_Population(USA, Iraq);
-    
-      //cout << "More data? (y/n) ";
-      //string answer;
-      //getline(cin, answer);
-      //if (answer != "y")
-         //more = false;
-   //}
 
    return 0;
 }
