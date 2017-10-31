@@ -54,14 +54,21 @@ void Country::read()
 
 bool Country::greater_population(Country p)
 {
-  
+   cout << "The current values for this object:";
+   print();
+   cout << endl;
+   cout << "The current values for the parameter object:";
+   p.print();
+   cout << endl; 
+ 
   Country best;
   bool best_population = true;
-  p.read();
-  if(p.greater_population(best))
+  if(p.population > population)
   {
      best = p;
      best_country_population = country_name;
+    //cout << "Best: " << best << endl;
+    cout << "Best Country Pop: " << best_country_population << endl;
   }
   
   
@@ -70,17 +77,6 @@ bool Country::greater_population(Country p)
 
 bool Country::greater_area(Country a)
 {
-  Country best;
-  bool best_area = true;
-  while (best_area)
-  {
-    
-    Country next;
-    next.read();
-    if(next.greater_area(best))
-        best = next;
-        best_country_area = country_name;
-  }
   // holds on to the greatest country of area
 }
 
@@ -103,7 +99,6 @@ double Country::get_area(double country_area)
 void Country::get_population_density()
 {
     population_density = population / area;
-    cout << "Population Density: " << population_density << endl;
 }
 
 void Country::print()
@@ -123,7 +118,25 @@ void Country::print()
 
 int main()
 {
-  Country songs_about_my_girl_leaving_me_but_at_least_i_have_my_truck_and_my_dog;
-  //runs shit... nah sayin
-return 0;
+   
+    bool more = true;
+    while (more)
+    {    
+      Country USA;
+      //Country;
+      Country Iraq;  
+      //Country next;
+      USA.read();
+      Iraq.read();  
+      if (USA.greater_population(Iraq))
+         USA.print();
+
+      //cout << "More data? (y/n) ";
+      //string answer;
+      //getline(cin, answer);
+      //if (answer != "y")
+         more = false;
+   }
+
+   return 0;
 }
