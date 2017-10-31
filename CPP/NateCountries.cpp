@@ -119,9 +119,9 @@ void Country::print()
 int main()
 {
    
-    bool more = true;
-    while (more)
-    {    
+    //bool more = true;
+    //while (more)
+    //{    
       Country USA;
       //Country;
       Country Iraq;  
@@ -135,8 +135,8 @@ int main()
       //string answer;
       //getline(cin, answer);
       //if (answer != "y")
-         more = false;
-   }
+         //more = false;
+   //}
 
    return 0;
 }
