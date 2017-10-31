@@ -48,6 +48,8 @@ void Country::read()
    cin >> area;
    cin.ignore();
     get_population_density();
+    print();
+
 }
 
 bool Country::greater_population(Country p)
@@ -106,7 +108,17 @@ void Country::get_population_density()
 
 void Country::print()
 {
-  //will print the data  
+      cout << "Best County Pop: " << best_country_population << endl;
+      cout << "Best Country Area: " << best_country_area << endl;
+      cout << "Best Country Density: " << best_country_density << endl;
+
+      cout << "Country Name: " << country_name << endl;
+      cout << "Area: " <<  area << endl;
+      cout << "Population: " << population << endl;
+      cout << "Population Density: " <<  population_density << endl;
+
+
+    //will print the data  
 }
 
 int main()
