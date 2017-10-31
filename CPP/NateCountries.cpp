@@ -19,16 +19,18 @@ class Country
      long get_population(long country_pop);
      double get_area(double area);
      void get_population_density();
-     
-     string best_country_population;
-     string best_country_area;
-     string best_country_density;
+
+
+     string best_country_name;     
+     double best_country_population;
+     double best_country_area;
+     double best_country_density;
      
   private:
      
      string country_name;
      double area;
-     long population;
+     double population;
      double population_density;
      
 };
@@ -47,24 +49,21 @@ void Country::read()
    cout << "Please enter the country's area: ";
    cin >> area;
    cin.ignore();
-    get_population_density();
-    print();
-
 }
 
+  // holds on to the greatest country of population
 bool Country::greater_population(Country p)
 {
     bool best_population = true;
     if(p.population > population)
     {
-     best_country_population = p.country_name;
+     best_country_name = p.country_name;
+     best_country_population = p.population;
     }
     else {
+        best_country_name = country_name;
         best_country_population = population;
     }
-    cout << endl << "Best Country Pop: " << best_country_population << endl;
-  
-  // holds on to the greatest country of population
 }
 
 bool Country::greater_area(Country a)
@@ -93,8 +92,11 @@ void Country::get_population_density()
     population_density = population / area;
 }
 
+    //will print the data  
 void Country::print()
 {
+
+    cout << endl << "Best Country Population: " << best_country_name << " With " << best_country_population << endl;
 /*
       cout << "Best Country Pop: " << best_country_population << endl;
       cout << "Best Country Area: " << best_country_area << endl;
@@ -109,6 +111,17 @@ void Country::print()
     //will print the data  
 }
 
+
+void Check_Population(Country one, Country two) {
+
+        if (one.greater_population(two)) {
+             one.print();
+        }
+        else {
+            two.print();
+        }
+}
+
 int main()
 {
    
@@ -119,11 +132,9 @@ int main()
         Country Iraq;  
         USA.read();
         Iraq.read();  
-        if (USA.greater_population(Iraq))
-             USA.print();
-        else {
-            Iraq.print();
-        }
+        
+        Check_Population(USA, Iraq);
+    
       //cout << "More data? (y/n) ";
       //string answer;
       //getline(cin, answer);
@@ -133,3 +144,4 @@ int main()
 
    return 0;
 }
+
