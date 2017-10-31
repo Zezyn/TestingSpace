@@ -47,6 +47,7 @@ void Country::read()
    cout << "Please enter the country's area: ";
    cin >> area;
    cin.ignore();
+    get_population_density();
 }
 
 bool Country::greater_population(Country p)
