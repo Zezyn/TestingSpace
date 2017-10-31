@@ -54,22 +54,19 @@ void Country::read()
 
 bool Country::greater_population(Country p)
 {
-   cout << "The current values for this object:";
-   print();
-   cout << endl;
-   cout << "The current values for the parameter object:";
-   p.print();
-   cout << endl; 
- 
   Country best;
-  bool best_population = true;
-  if(p.population > population)
-  {
+    bool best_population = true;
+    if(p.population > population)
+    {
      best = p;
-     best_country_population = country_name;
+     best_country_population = p.country_name;
+    }
+    else {
+        best_country_population = population;
+    }
     //cout << "Best: " << best << endl;
-    cout << "Best Country Pop: " << best_country_population << endl;
-  }
+    cout << endl << "Bet Country Pop: " << best_country_population << endl;
+  
   
   
   // holds on to the greatest country of population
