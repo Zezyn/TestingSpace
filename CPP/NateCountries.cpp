@@ -35,7 +35,7 @@ class Country
 
 Country::Country()
 {
-   read();
+   
 }
 
 void Country::read()
