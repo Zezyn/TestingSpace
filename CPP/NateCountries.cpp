@@ -17,21 +17,21 @@ class Country
      void print();
      
      long get_population(long country_pop);
-     double get_area(double area);
+     long get_area(long area);
      void get_population_density();
 
 
      string best_country_name;     
-     double best_country_population;
-     double best_country_area;
-     double best_country_density;
+     long best_country_population;
+     long best_country_area;
+     long best_country_density;
      
   private:
      
      string country_name;
-     double area;
-     double population;
-     double population_density;
+     long area;
+     long population;
+     long population_density;
      
 };
 
@@ -82,7 +82,7 @@ long Country::get_population(long country_pop)
   return population;
 }
 
-double Country::get_area(double country_area)
+long Country::get_area(long country_area)
 {
   return area;
 }
