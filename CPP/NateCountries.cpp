@@ -100,7 +100,8 @@ void Country::get_population_density()
 
 void Country::print()
 {
-      cout << "Best County Pop: " << best_country_population << endl;
+/*
+      cout << "Best Country Pop: " << best_country_population << endl;
       cout << "Best Country Area: " << best_country_area << endl;
       cout << "Best Country Density: " << best_country_density << endl;
 
@@ -108,7 +109,7 @@ void Country::print()
       cout << "Area: " <<  area << endl;
       cout << "Population: " << population << endl;
       cout << "Population Density: " <<  population_density << endl;
-
+*/
 
     //will print the data  
 }
