@@ -85,11 +85,11 @@ long country::rec_area()
 
 bool country::greatest_pop()
 {
-  //if(population > best_population)
-  //{
-    //best_population = population;
-    //best_country_pop = countryname;
-  //}  // Saves the countries greatest pop.
+  if(population > best_population)
+  {
+    best_population = population;
+    best_country_pop = countryname;
+  }  // Saves the countries greatest pop.
 }
 
 bool country::greatest_area()
