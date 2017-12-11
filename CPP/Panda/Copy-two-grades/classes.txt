@@ -1,0 +1,5 @@
+   csc1
+   cis201
+   eng108
+   math90
+   psy201
