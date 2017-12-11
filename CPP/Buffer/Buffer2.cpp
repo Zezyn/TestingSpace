@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdint>
+#include <cstring>
 
 char *next_line(char *char_ptr)
 {
@@ -7,35 +9,42 @@ char *next_line(char *char_ptr)
     return char_ptr + 1;
 }
 
-char *double_lines(char **lines, int &size)
+void *double_lines(char **lines, int &size)
 {
    char* new_lines[size* 2];
-   for(int i = 0; i < size; i++)
-   {
-      new_lines[i] = lines[i];
-   }
-   size *= 2;
-   lines = new_lines;
-   return *lines;
+   
+   std::memcpy(new_lines, lines, (size*2));
+   
+   //for(int i = 0; i < size; i++)
+   //{
+   //   new_lines[i] = lines[i];
+   //}
+   //size *= 2;
+   //lines = new_lines;
 }
 
-char *double_buffer(char *buffer, int &size)
-{
-   std::cout << sizeof(buffer) / sizeof(char);
-   char* new_buffer = new char[size * 2];
-   for(int i = 0; i < size; i++)
-   {
-      new_buffer[i] = buffer[i];
-   }
-   delete [] buffer;
-   buffer = new_buffer;
-   delete [] new_buffer;
+void *double_buffer(char *buffer, int size)
+{	std::cout << "SIZE: " << size << std::endl;
+   std::cout << "BEFORE FUNCTION: " << sizeof(buffer) << std::endl;
+   int new_size = size*2;
+   std::cout << "NEW SIZE: " << new_size << std::endl;
+   char *new_buffer[new_size];
+   
+   //for(int i = 0; i < sizeof(buffer); i++)
+   //{
+   //   new_buffer[i] = &buffer[i];
+   //}
+   
+   std::memcpy(buffer, new_buffer, size);
+   
+   delete [] &buffer;
+   
+   std::memcpy(new_buffer, buffer, new_size);
 
-   size *= 2;
+   //delete [] &new_buffer;
 
-   std::cout << sizeof(buffer) / sizeof(char);
-
-   return buffer;
+   std::cout << "AFTER FUNCTION: " << sizeof(buffer) << std::endl;
+   std::cout << "NEW BUFFER: " << sizeof(new_buffer) << std::endl;
 }
 
 
@@ -50,22 +59,27 @@ int main()
     int b_count = 0;
     int l_count = 0;
     
+	char c;
+	
     while (!std::cin.eof())
     {
-        char c;
+        
         std::cin.get(c);
         if (c == '\n')
         {
             buffer[b_count] = '\0';
             l_count++;
          if(l_count == L_SIZE)
-            double_lines(lines, L_SIZE);
+			{ double_lines(lines, L_SIZE); }
         }
         else
-            buffer[b_count] = c;
+			{ buffer[b_count] = c; b_count++; }
         
-        b_count++;
-      double_buffer(buffer, B_SIZE);
+      if(b_count == B_SIZE) {
+			double_buffer(buffer, B_SIZE);
+			std::cout << sizeof(buffer) << std::endl;
+	  }
+	  
     }
 
     char *current_char = buffer;
